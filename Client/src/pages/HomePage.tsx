@@ -56,19 +56,19 @@ const Home: React.FC = () => {
                 <div className="chat-container">
                     <div className="model-select">
                         <Select value={selectedModel} style={{ width: 200, marginLeft: 10 }} onChange={(value) => setSelectedModel(value)}>
-                            <Option value="Gemini">
+                            <Option value="gemini">
                                 <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
                                     <img src={GeminiIcon} alt="Gemini" style={{ width: '20px', height: '20px' }} />
                                     <span>Gemini</span>
                                 </div>
                             </Option>
-                            <Option value="GPT-4o">
+                            <Option value="openai">
                                 <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
                                     <OpenAIOutlined />
                                     <span>GPT-4o mini</span>
                                 </div>
                             </Option>
-                            <Option value="Deepseek">
+                            <Option value="deepseek">
                                 <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
                                     <img src={DeepSeekIcon} alt="Deepseek" style={{ width: '15px', height: '15px' }} />
                                     <span>Deepseek</span>
