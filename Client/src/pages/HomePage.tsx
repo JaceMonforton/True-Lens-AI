@@ -26,7 +26,7 @@ const Home: React.FC = () => {
 
         setLoading(true);
         try {
-            const response = await axios.post("/api/evaluate_prompt", {
+            const response = await axios.post("http://127.0.0.1:5000/api/evaluate_prompt", {
                 model: selectedModel,
                 prompt: message,
             });
