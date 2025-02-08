@@ -1,11 +1,11 @@
 ![Logo](trulens.png)
 # True-Lens AI
 
-True-Lens AI is an amibitous project that aims to analyze and generate safety, bias & ethical concerns for each model. 
+True-Lens AI is an ambitious and forward-thinking project dedicated to analyzing, identifying, and addressing critical concerns related to the safety, bias, and ethical implications of artificial intelligence models. By leveraging advanced analytical techniques, the project seeks to ensure that AI systems operate transparently, fairly, and responsibly, minimizing risks and promoting ethical AI development.
 
 ## Who is this for?
 
-True-Lens AI is for businesses and individuals who want a method of testing their AI models in terms of fairness and ethical biases before deployment.
+True-Lens AI is designed for businesses, researchers, and individuals who seek a reliable and comprehensive method for evaluating their AI models before deployment. It provides a structured framework to assess fairness, detect ethical biases, and ensure that AI-driven systems operate transparently and responsibly. By offering in-depth analysis and actionable insights, True-Lens AI helps organizations build trust in their AI technologies before they are introduced into real-world applications.
 
 ## Installation
 
