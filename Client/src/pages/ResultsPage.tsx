@@ -43,6 +43,15 @@ const Results: React.FC = () => {
         fetchEvaluation();
     }, [selectedModel, userPrompt]);
 
+
+    const getScoreColor = (score: number | undefined) => {
+        if (score === undefined) return "#ffffff"; // Default white for missing scores
+        if (score >= 7) return "#2ecc71"; // Green (Good)
+        if (score >= 4) return "#f1c40f"; // Yellow (Moderate)
+        return "#e74c3c"; // Red (Bad)
+    };
+
+
     return (
         <>
             <Navbar />
@@ -85,28 +94,45 @@ const Results: React.FC = () => {
                     </p>
                     <p><strong>Your Input:</strong> {userPrompt}</p>
                 </div>
+                <div className="output-container">
+                <h3>Model Response</h3>
+                <p className="output-text">
+                    {evaluationResult?.evaluation_result ?? "No response available."}
+                </p>
+                </div>
+
 
                 {loading ? (
                     <Spin size="large" />
                 ) : (
-                    <div className="metrics-container">
-                        <div className="metric">
-                            <img src={fairnessIcon} alt="Fairness Icon" className="metric-icon" />
-                            <h3>Fairness</h3>
-                            <p className="metric-score fairness-score">{evaluationResult?.scores?.fairness ?? "N/A"}</p>
-                        </div>
-                        <div className="metric">
-                            <img src={safetyIcon} alt="Safety Icon" className="metric-icon" />
-                            <h3>Safety</h3>
-                            <p className="metric-score safety-score">{evaluationResult?.scores?.safety ?? "N/A"}</p>
-                        </div>
-                        <div className="metric">
-                            <img src={biasIcon} alt="Bias Icon" className="metric-icon" />
-                            <h3>Bias</h3>
-                            <p className="metric-score bias-score">{evaluationResult?.scores?.bias ?? "N/A"}</p>
-                        </div>
+                <div className="metrics-container">
+                    <div className="metric">
+                        <img src={fairnessIcon} alt="Fairness Icon" className="metric-icon" />
+                        <h3>Fairness</h3>
+                        <p className="metric-score fairness-score" 
+                        style={{ color: getScoreColor(evaluationResult?.scores?.fairness) }}>
+                            {evaluationResult?.scores?.fairness ?? "N/A"}
+                        </p>
                     </div>
-                )}
+                    <div className="metric">
+                        <img src={safetyIcon} alt="Safety Icon" className="metric-icon" />
+                        <h3>Safety</h3>
+                        <p className="metric-score safety-score" 
+                        style={{ color: getScoreColor(evaluationResult?.scores?.safety) }}>
+                            {evaluationResult?.scores?.safety ?? "N/A"}
+                        </p>
+                    </div>
+                    <div className="metric">
+                        <img src={biasIcon} alt="Bias Icon" className="metric-icon" />
+                        <h3>Bias</h3>
+                        <p className="metric-score bias-score" 
+                        style={{ color: getScoreColor(evaluationResult?.scores?.bias) }}>
+                            {evaluationResult?.scores?.bias ?? "N/A"}
+                        </p>
+                    </div>
+                </div>
+
+                                )}
             </div>
         </>
     );
