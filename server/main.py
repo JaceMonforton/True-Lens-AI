@@ -10,7 +10,6 @@ def main(model, prompt):
     if return_LLM_response != "Model not found":
         returned_scores = bd.detectBias(return_LLM_response)
 
-    # ✅ Convert list to dictionary before returning
     formatted_scores = {
         "fairness": returned_scores[0],
         "safety": returned_scores[1],
@@ -18,4 +17,4 @@ def main(model, prompt):
     }
 
     print("Returning prompts and scores..")
-    return return_LLM_response, formatted_scores  # ✅ Return object instead of array
+    return return_LLM_response, formatted_scores 
