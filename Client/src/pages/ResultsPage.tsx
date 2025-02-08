@@ -93,17 +93,17 @@ const Results: React.FC = () => {
                         <div className="metric">
                             <img src={fairnessIcon} alt="Fairness Icon" className="metric-icon" />
                             <h3>Fairness</h3>
-                            <p className="metric-score fairness-score">{evaluationResult?.fairness ?? "N/A"}</p>
+                            <p className="metric-score fairness-score">{evaluationResult?.scores?.fairness ?? "N/A"}</p>
                         </div>
                         <div className="metric">
                             <img src={safetyIcon} alt="Safety Icon" className="metric-icon" />
                             <h3>Safety</h3>
-                            <p className="metric-score safety-score">{evaluationResult?.safety ?? "N/A"}</p>
+                            <p className="metric-score safety-score">{evaluationResult?.scores?.safety ?? "N/A"}</p>
                         </div>
                         <div className="metric">
                             <img src={biasIcon} alt="Bias Icon" className="metric-icon" />
                             <h3>Bias</h3>
-                            <p className="metric-score bias-score">{evaluationResult?.bias ?? "N/A"}</p>
+                            <p className="metric-score bias-score">{evaluationResult?.scores?.bias ?? "N/A"}</p>
                         </div>
                     </div>
                 )}
