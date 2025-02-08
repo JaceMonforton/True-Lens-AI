@@ -69,4 +69,5 @@
         text-align: center;
         color: white;
         font-family: 'Space Grotesk', sans-serif;
+        max-width: 600px;
     }
