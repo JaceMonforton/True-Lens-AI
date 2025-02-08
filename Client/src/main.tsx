@@ -5,7 +5,7 @@ import { BrowserRouter } from 'react-router-dom';
 import { Routes, Route } from 'react-router-dom';
 import { Toaster } from 'react-hot-toast';
 import Home from './pages/HomePage.tsx'
-
+import Results from './pages/ResultsPage.tsx';
 createRoot(document.getElementById('root')!).render(
 <>
     <Toaster 
@@ -20,6 +20,7 @@ createRoot(document.getElementById('root')!).render(
       <Routes>
         <Route path='/' element={ <App /> } />
         <Route path='/Home' element={ <Home /> }/>
+        <Route path='/Results' element={ <Results /> }/>
       </Routes>
       
       </StrictMode>,

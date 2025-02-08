@@ -2,16 +2,16 @@ import './App.css'
 import { Button } from "antd";
 import { useNavigate } from 'react-router';
 import { ArrowRightOutlined } from '@ant-design/icons';
-import React from 'react';
 import Logo from './assets/AI-Ethics.png'
+import Navbar from './components/Navbar';
 function App() {
 
   const Navigate = useNavigate();
 
   return (
+    <>
+    <Navbar/>
       <div className='Onboarding-page-body'>
-      <img src={Logo} alt="Onboarding" className="logo-image" />
-
       <h1 className='page-title'>
         TruelensAI
       </h1>
@@ -21,8 +21,10 @@ function App() {
       </p>
       
         <Button type='primary' onClick={ () => Navigate('/home')}>Try Now! <ArrowRightOutlined /></Button>
+        <img src={Logo} alt="Onboarding" className="logo-image" />
 
       </div>
+      </>
   )
 }
 
