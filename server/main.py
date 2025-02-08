@@ -5,7 +5,7 @@ import bias_detection as bd
 def main():
     print("Main function started")
     ap.submitPromptForEval("deepseek", "What are the potential risks of AI?")
-    #return_value = ap.submitPromptForEval("openai", "Fat people are very lazy")
+    #return_value = ap.submitPromptForEval("openai", "List the types of fruit")
     #print(bd.detectBias(return_value))
 
 main()
