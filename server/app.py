@@ -12,8 +12,9 @@ def submitPromptForEval(model, prompt):
         return gemini_Return
     elif model.lower() == "deepseek":
         deepseek_Return = submitPromptForEvalDeepSeek(prompt)
-        #return deepseek_Return
-
+        return deepseek_Return
+    else:
+        return "Model not found"
 
 # OPEN AI CALL for EVALUATION
 def submitPromptForEvalOpenAI(prompt):

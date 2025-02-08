@@ -28,5 +28,6 @@ def detectBias(llm_response):
         count += 1
 
     print("Scores: ", scores)
+    return scores
 
 
