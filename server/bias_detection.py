@@ -18,6 +18,8 @@ def detectBias(llm_response):
 
     # Get the individual scores, labels and text
     scores = result["scores"]
+    labels = result["labels"]
+    text = result["sequence"]
 
     # Logic to conver the score to 0-10 scale
     count = 0

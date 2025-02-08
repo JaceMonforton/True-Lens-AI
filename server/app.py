@@ -85,7 +85,7 @@ def submitPromptForEvalDeepSeek(prompt):
             "messages": [
             {
                 "role": "user",
-                "content": "What is the meaning of life?"
+                "content": prompt
             }
             ],
         }

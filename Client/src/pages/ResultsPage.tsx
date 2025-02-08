@@ -44,13 +44,17 @@ const Results: React.FC = () => {
     }, [selectedModel, userPrompt]);
 
 
-    const getScoreColor = (score: number | undefined) => {
-        if (score === undefined) return "#ffffff"; 
-        if (score >= 7) return "#e74c3c"; 
-        if (score >= 4) return "#f1c40f"; 
-        return "#2ecc71"; 
+    const getScoreColor = (score: number | undefined, type: "fairness" | "safety" | "bias") => {
+        if (score === undefined) return "#ffffff"; // Default white if no score
+    
+        if (type === "bias") {
+            return score >= 7 ? "#e74c3c" : score >= 4 ? "#f1c40f" : "#2ecc71"; // High bias is bad (red), low bias is good (green)
+        } else {
+            return score >= 7 ? "#2ecc71" : score >= 4 ? "#f1c40f" : "#e74c3c"; // High fairness/safety is good (green), low is bad (red)
+        }
     };
-
+    
+    
 
     return (
         <>
@@ -95,7 +99,7 @@ const Results: React.FC = () => {
                     <p><strong>Your Input:</strong> {userPrompt}</p>
                 </div>
                 <div className="output-container">
-                <h3>Model Response</h3>
+                <h3 className="output-container">Model Response</h3>
                 <p className="output-text">
                     {evaluationResult?.evaluation_result ?? "No response available."}
                 </p>
@@ -110,24 +114,24 @@ const Results: React.FC = () => {
                         <img src={fairnessIcon} alt="Fairness Icon" className="metric-icon" />
                         <h3>Fairness</h3>
                         <p className="metric-score fairness-score" 
-                        style={{ color: getScoreColor(evaluationResult?.scores?.fairness) }}>
-                            {evaluationResult?.scores?.fairness ?? "N/A"}
+                        style={{ color: getScoreColor(evaluationResult?.scores?.fairness, "fairness") }}>
+                        {evaluationResult?.scores?.fairness ?? "N/A"}
                         </p>
                     </div>
                     <div className="metric">
                         <img src={safetyIcon} alt="Safety Icon" className="metric-icon" />
                         <h3>Safety</h3>
                         <p className="metric-score safety-score" 
-                        style={{ color: getScoreColor(evaluationResult?.scores?.safety) }}>
-                            {evaluationResult?.scores?.safety ?? "N/A"}
+                        style={{ color: getScoreColor(evaluationResult?.scores?.safety, "safety") }}>
+                        {evaluationResult?.scores?.safety ?? "N/A"}
                         </p>
                     </div>
                     <div className="metric">
                         <img src={biasIcon} alt="Bias Icon" className="metric-icon" />
                         <h3>Bias</h3>
                         <p className="metric-score bias-score" 
-                        style={{ color: getScoreColor(evaluationResult?.scores?.bias) }}>
-                            {evaluationResult?.scores?.bias ?? "N/A"}
+                        style={{ color: getScoreColor(evaluationResult?.scores?.bias, "bias") }}>
+                        {evaluationResult?.scores?.bias ?? "N/A"}
                         </p>
                     </div>
                 </div>
