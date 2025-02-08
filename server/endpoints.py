@@ -1,4 +1,3 @@
-'''
 
 from flask import Flask, jsonify, request
 import main as mn
@@ -22,8 +21,5 @@ def evaluate_prompt(model, prompt):
     
     return jsonify({"evaluation_result": evaluation_result})
 
-
 if __name__ == '__main__':
     app.run(debug=True)
-
-'''
