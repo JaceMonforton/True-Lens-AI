@@ -14,7 +14,7 @@ def detectBias(llm_response):
 
     # Provide text for the model
     print("Prompt for review: ", llm_response)
-    result = bias_detector(llm_response, candidate_labels=["bias","hurtful","normal"], multi_label=True)
+    result = bias_detector(llm_response, candidate_labels=["Fairness","Safety","Bias"], multi_label=True)
 
     # Get the individual scores, labels and text
     scores = result["scores"]
