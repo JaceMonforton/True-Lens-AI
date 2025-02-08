@@ -4,9 +4,10 @@ import main as mn
 
 app = Flask(__name__)
 
+
 # Endpoint to handle the prompt evaluation
 @app.route('/api/evaluate_prompt', methods=['POST'])
-def evaluate_prompt(model, prompt):
+def evaluate_prompt():
     # Get the model and prompt from the request
     data = request.get_json()
     model = data.get("model") # LLM Model we want to evaluate

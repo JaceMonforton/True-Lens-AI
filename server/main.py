@@ -2,10 +2,13 @@ import app as ap
 import bias_detection as bd
 
 # Main logic for the server and the bias detection
-def main():
+def main(model, prompt):
     print("Main function started")
-    ap.submitPromptForEval("deepseek", "What are the potential risks of AI?")
-    #return_value = ap.submitPromptForEval("openai", "Fat people are very lazy")
-    #print(bd.detectBias(return_value))
+    return_LLM_response = ap.submitPromptForEval(model, prompt)
+    if(return_LLM_response != "Model not found"):
+        returned_scores = bd.detectBias(return_LLM_response)
+    
+    print("Returning prompts and scores..")
+    return return_LLM_response, returned_scores
 
 main()
