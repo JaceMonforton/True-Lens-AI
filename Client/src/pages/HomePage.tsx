@@ -4,7 +4,7 @@ import "../Home.css";
 import { ArrowRightOutlined } from "@ant-design/icons";
 import Navbar from "../components/Navbar";
 import axios from "axios";
-import Sidebar from "../components/SideBar";
+import Sidebar from "../components/Sidebar";
 import { OpenAIOutlined } from "@ant-design/icons";
 import GeminiIcon from "../assets/gemini.png"
 import DeepSeekIcon from "../assets/deepseek.png"
@@ -37,19 +37,31 @@ const Home: React.FC = () => {
 
                 <div className="chat-container">
                     <div className="model-select">
-                        <span>Model:</span>
-                        <Select
+                    <Select
                             defaultValue={selectedModel}
-                            style={{ width: 200, marginLeft: 10, backgroundColor:'#1e1e1e'}}
+                            style={{ width: 200, marginLeft: 10 }}
                             onChange={(value) => setSelectedModel(value)}
                         >
                             <Option value="Gemini">
-                            <p><img src = {GeminiIcon} alt="Gemini" style={{display: 'flex', alignSelf: 'center', width: '20px', height: '20px'}}/> Gemini</p></Option>
-                            <Option value="GPT-4o"><OpenAIOutlined /> GPT-4o mini</Option>
+                                <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                                    <img src={GeminiIcon} alt="Gemini" style={{ width: '20px', height: '20px' }} />
+                                    <span>Gemini</span>
+                                </div>
+                            </Option>
+                            <Option value="GPT-4o">
+                                <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                                    <OpenAIOutlined />
+                                    <span>GPT-4o mini</span>
+                                </div>
+                            </Option>
                             <Option value="Deepseek">
-                            <p><img src = {DeepSeekIcon} alt="deepseek" style={{display: 'flex', alignSelf: 'center', width: '15px', height: '15px'}}/> Deepseek</p></Option>
+                                <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                                    <img src={DeepSeekIcon} alt="Deepseek" style={{ width: '15px', height: '15px' }} />
+                                    <span>Deepseek</span>
+                                </div>
+                            </Option>
                         </Select>
-                    </div>
+                </div>
 
                     <textarea
                         className="chat-input"

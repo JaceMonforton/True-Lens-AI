@@ -1,6 +1,6 @@
     import React from "react";
     import Navbar from "../components/Navbar";
-    import Sidebar from "../components/SideBar";
+    import Sidebar from "../components/Sidebar";
     import "../Results.css";
     import safetyIcon from '../assets/safety.png'
     import biasIcon from '../assets/bias.png'
@@ -28,19 +28,33 @@
         <div className="results-container">
             <div className="results-header">
             <h2 className="results-title">Results 
-                <div className="model-select">
+                <div className="model-select-results">
                         <span>Switch Model:</span>
                         <Select
                             defaultValue={selectedModel}
-                            style={{ width: 200, marginLeft: 10, backgroundColor:'#1e1e1e'}}
+                            style={{ width: 200, marginLeft: 10, backgroundColor:'#101010'}}
                             onChange={(value) => setSelectedModel(value)}
                         >
                             <Option value="Gemini">
-                            <p><img src = {GeminiIcon} alt="Gemini" style={{display: 'flex', alignSelf: 'center', width: '20px', height: '20px'}}/> Gemini</p></Option>
-                            <Option value="GPT-4o"><OpenAIOutlined /> GPT-4o mini</Option>
+                                <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                                    <img src={GeminiIcon} alt="Gemini" style={{ width: '20px', height: '20px' }} />
+                                    <span>Gemini</span>
+                                </div>
+                            </Option>
+                            <Option value="GPT-4o">
+                                <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                                    <OpenAIOutlined />
+                                    <span>GPT-4o mini</span>
+                                </div>
+                            </Option>
                             <Option value="Deepseek">
-                            <p><img src = {DeepSeekIcon} alt="deepseek" style={{display: 'flex', alignSelf: 'center', width: '15px', height: '15px'}}/> Deepseek</p></Option>
+                                <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                                    <img src={DeepSeekIcon} alt="Deepseek" style={{ width: '15px', height: '15px' }} />
+                                    <span>Deepseek</span>
+                                </div>
+                            </Option>
                         </Select>
+
                     </div>
 
             </h2>

@@ -48,13 +48,14 @@
 
     }
     
-.model-select {
-    display: flex;
-    align-items: center;
-    align-self: center;
-    justify-content: center;
-    align-content: center;
-    margin-bottom: 10px;
-    font-size: 16px;
-    background-color: #101010;
-}
+    .model-select-results {
+        margin-top: 10px;
+        display: flex;
+        font-family: 'Space Grotesk', sans-serif;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 20px;
+        font-size: 16px;
+        height: 20px;
+        background-color: #101010 !important;
+    }
