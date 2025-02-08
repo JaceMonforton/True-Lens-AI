@@ -18,7 +18,7 @@ and the client with
 ```bash
 cd Client
 npm i
-npm run preview
+npm run dev
 ```
     
 ## Tech Stack
