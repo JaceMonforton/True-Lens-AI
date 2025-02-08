@@ -47,3 +47,14 @@
         font-family: 'Space Grotesk', sans-serif;
 
     }
+    
+.model-select {
+    display: flex;
+    align-items: center;
+    align-self: center;
+    justify-content: center;
+    align-content: center;
+    margin-bottom: 10px;
+    font-size: 16px;
+    background-color: #101010;
+}

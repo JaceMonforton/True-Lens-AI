@@ -73,3 +73,11 @@
 .send-button:active {
     transform: scale(0.95);
 }
+
+.model-select {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    font-size: 16px;
+    background-color: #1e1e1e;
+}
