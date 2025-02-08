@@ -76,7 +76,7 @@ def submitPromptForEvalDeepSeek(prompt):
     response = requests.post(
         url="https://openrouter.ai/api/v1/chat/completions",
         headers={
-            "Authorization": "Bearer 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",
+            "Authorization": f"Bearer {os.environ['OpenRouter']}",
             "Content-Type": "application/json",
         },
         json={
