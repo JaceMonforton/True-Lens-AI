@@ -1,25 +1,21 @@
-
 from flask import Flask, jsonify, request
-import main as mn
+from flask_cors import CORS
+import main as mn  # Your model logic
 
 app = Flask(__name__)
-CORS(app)
+CORS(app)  # Allow frontend to communicate with Flask
 
-# Endpoint to handle the prompt evaluation
 @app.route('/api/evaluate_prompt', methods=['POST'])
 def evaluate_prompt():
-    # Get the model and prompt from the request
     data = request.get_json()
-    model = data.get("model") # LLM Model we want to evaluate
-    prompt = data.get("prompt") # Prompt we are evaluating
-    
-    # Error catching for missing data from frontend
+    model = data.get("model")
+    prompt = data.get("prompt")
+
     if not model or not prompt:
         return jsonify({"error": "Model and prompt are required"}), 400
-    
-    # Call the existing function to submit the prompt for evaluation
-    evaluation_result = mn.main(model, prompt)
-    
+
+    evaluation_result = mn.main(model, prompt)  # Call your evaluation function
+
     return jsonify({"evaluation_result": evaluation_result})
 
 if __name__ == '__main__':
