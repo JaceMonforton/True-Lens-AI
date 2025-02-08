@@ -14,7 +14,7 @@ const { Option } = Select;
 
 const Home: React.FC = () => {
     const [message, setMessage] = useState("");
-    const [selectedModel, setSelectedModel] = useState("GPT-4");
+    const [selectedModel, setSelectedModel] = useState("Select a Model");
     const [loading, setLoading] = useState(false);
     const navigate = useNavigate();
 
