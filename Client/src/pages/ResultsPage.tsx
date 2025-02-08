@@ -24,21 +24,22 @@ const Results: React.FC = () => {
     useEffect(() => {
         const fetchEvaluation = async () => {
             if (!selectedModel || !userPrompt) return;
-            
+    
             setLoading(true);
             try {
                 const response = await axios.post("http://127.0.0.1:5000/api/evaluate_prompt", {
                     model: selectedModel,
                     prompt: userPrompt
                 });
-                setEvaluationResult(response.data.evaluation_result);
+    
+                setEvaluationResult(response.data);
             } catch (error) {
                 console.error("Error fetching evaluation:", error);
             } finally {
                 setLoading(false);
             }
         };
-
+    
         fetchEvaluation();
     }, [selectedModel, userPrompt]);
 
