@@ -1,28 +1,49 @@
 import React, { useState } from "react";
-import { Button, Select } from "antd"; // Import Select
+import { Button, Select, message as antdMessage } from "antd";
+import { useNavigate } from "react-router-dom";
+import axios from "axios"; // Import Axios for API request
 import "../Home.css";
 import { ArrowRightOutlined } from "@ant-design/icons";
 import Navbar from "../components/Navbar";
-import axios from "axios";
 import Sidebar from "../components/Sidebar";
 import { OpenAIOutlined } from "@ant-design/icons";
-import GeminiIcon from "../assets/gemini.png"
-import DeepSeekIcon from "../assets/deepseek.png"
+import GeminiIcon from "../assets/gemini.png";
+import DeepSeekIcon from "../assets/deepseek.png";
 
 const { Option } = Select;
+
 const Home: React.FC = () => {
     const [message, setMessage] = useState("");
-    const [selectedModel, setSelectedModel] = useState("GPT-4"); // Default model
+    const [selectedModel, setSelectedModel] = useState("GPT-4");
+    const [loading, setLoading] = useState(false);
+    const navigate = useNavigate();
 
     const handleClick = async () => {
+        if (!message.trim()) {
+            antdMessage.warning("Please enter a prompt before proceeding.");
+            return;
+        }
+
+        setLoading(true);
         try {
-            const response = await axios.post("/api/test-model", {
+            const response = await axios.post("/api/evaluate_prompt", {
                 model: selectedModel,
                 prompt: message,
             });
-            console.log("Response:", response.data);
+
+            // Navigate to results page with backend response
+            navigate("/results", {
+                state: {
+                    model: selectedModel,
+                    prompt: message,
+                    evaluationResult: response.data.evaluation_result,
+                },
+            });
         } catch (error) {
-            console.error("Error:", error);
+            console.error("Error sending prompt to backend:", error);
+            antdMessage.error("Failed to evaluate prompt. Please try again.");
+        } finally {
+            setLoading(false);
         }
     };
 
@@ -31,17 +52,10 @@ const Home: React.FC = () => {
             <Navbar />
             <Sidebar />
             <div className="home-container">
-                <h3 className="home-title">
-                    Enter a Prompt to be examined or click to generate a random prompt
-                </h3>
-
+                <h3 className="home-title">Enter a Prompt to be examined or click to generate a random prompt</h3>
                 <div className="chat-container">
                     <div className="model-select">
-                    <Select
-                            defaultValue={selectedModel}
-                            style={{ width: 200, marginLeft: 10 }}
-                            onChange={(value) => setSelectedModel(value)}
-                        >
+                        <Select value={selectedModel} style={{ width: 200, marginLeft: 10 }} onChange={(value) => setSelectedModel(value)}>
                             <Option value="Gemini">
                                 <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
                                     <img src={GeminiIcon} alt="Gemini" style={{ width: '20px', height: '20px' }} />
@@ -61,8 +75,7 @@ const Home: React.FC = () => {
                                 </div>
                             </Option>
                         </Select>
-                </div>
-
+                    </div>
                     <textarea
                         className="chat-input"
                         placeholder="Type your message..."
@@ -70,8 +83,7 @@ const Home: React.FC = () => {
                         onChange={(e) => setMessage(e.target.value)}
                         rows={1}
                     />
-
-                    <Button type="primary" className="send-button" onClick={handleClick}>
+                    <Button type="primary" className="send-button" onClick={handleClick} loading={loading}>
                         <ArrowRightOutlined />
                     </Button>
                 </div>
