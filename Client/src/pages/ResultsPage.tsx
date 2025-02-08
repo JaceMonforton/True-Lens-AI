@@ -45,10 +45,10 @@ const Results: React.FC = () => {
 
 
     const getScoreColor = (score: number | undefined) => {
-        if (score === undefined) return "#ffffff"; // Default white for missing scores
-        if (score >= 7) return "#2ecc71"; // Green (Good)
-        if (score >= 4) return "#f1c40f"; // Yellow (Moderate)
-        return "#e74c3c"; // Red (Bad)
+        if (score === undefined) return "#ffffff"; 
+        if (score >= 7) return "#e74c3c"; 
+        if (score >= 4) return "#f1c40f"; 
+        return "#2ecc71"; 
     };
 
 
