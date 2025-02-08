@@ -26,10 +26,14 @@ const Home: React.FC = () => {
 
         setLoading(true);
         try {
-            const response = await axios.post("http://127.0.0.1:5000/api/evaluate_prompt", {
-                model: selectedModel,
-                prompt: message,
-            });
+            const response = await axios.post(
+                "http://127.0.0.1:5000/api/evaluate_prompt",
+                {
+                    model: selectedModel,
+                    prompt: message,
+                },
+                { headers: { "Content-Type": "application/json" } }
+            );
 
             // Navigate to results page with backend response
             navigate("/results", {
