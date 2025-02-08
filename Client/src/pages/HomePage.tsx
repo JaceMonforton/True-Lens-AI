@@ -23,7 +23,13 @@ const Home: React.FC = () => {
             antdMessage.warning("Please enter a prompt before proceeding.");
             return;
         }
-
+        if (selectedModel === "Select a Model") {
+            antdMessage.warning("Please select a model before proceeding.");
+            return;
+        }
+    
+        console.log("Sending request with:", { model: selectedModel, prompt: message });
+    
         setLoading(true);
         try {
             const response = await axios.post(
@@ -34,8 +40,9 @@ const Home: React.FC = () => {
                 },
                 { headers: { "Content-Type": "application/json" } }
             );
-
-            // Navigate to results page with backend response
+    
+            console.log("Response received:", response.data);
+    
             navigate("/results", {
                 state: {
                     model: selectedModel,
