@@ -14,12 +14,16 @@ To get an instance up and running, you can ```git clone``` the repository then s
 cd server
 pip install flask
 pip install flask_cors
+pip install requests
+pip install transformers
+pip install torch torchvision torchaudio
 python endpoints.py
 ```
 and the client with
 ```bash
 cd Client
-npm i
+npm install
+npm install vite
 npm run dev
 ```
     
@@ -27,7 +31,9 @@ npm run dev
 
 **Client:** Typescript, React, Redux, TailwindCSS, AntDesign
 
-**Server:** Python, Flask
+**Server:** Python, Flask, Pytorch
+
+**Disclaimer** The requests will not be made without API keys, this can be added in the app.py file temporarily for making requests.
 
 **Models:** True-Lens AI uses a zero-shot classification which allows for a model that can classify text even without specific training. The model used is Facebook's BART Large MNLI model, which is good for text classification.
 ## Authors
