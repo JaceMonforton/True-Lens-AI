@@ -12,7 +12,9 @@ True-Lens AI is designed for businesses, researchers, and individuals who seek a
 To get an instance up and running, you can ```git clone``` the repository then start up the server with 
 ```
 cd server
-TODOTODOTODOTODO
+pip install flask
+pip install flask_cors
+python endpoints.py
 ```
 and the client with
 ```bash
