@@ -9,7 +9,7 @@ True-Lens AI is designed for businesses, researchers, and individuals who seek a
 
 ## Installation
 
-**Disclaimer** The requests will not be made without API keys, this can be added in the app.py file temporarily for making requests.
+**Disclaimer:** The requests will not be made without API keys, this can be added in the app.py file temporarily for making requests.
 
 To get an instance up and running, you can ```git clone``` the repository then start up the server with 
 ```
