@@ -7,6 +7,8 @@ True-Lens AI is an ambitious and forward-thinking project dedicated to analyzing
 
 True-Lens AI is designed for businesses, researchers, and individuals who seek a reliable and comprehensive method for evaluating their AI models before deployment. It provides a structured framework to assess fairness, detect ethical biases, and ensure that AI-driven systems operate transparently and responsibly. By offering in-depth analysis and actionable insights, True-Lens AI helps organizations build trust in their AI technologies before they are introduced into real-world applications.
 
+**Disclaimer** The requests will not be made without API keys, this can be added in the app.py file temporarily for making requests.
+
 ## Installation
 
 To get an instance up and running, you can ```git clone``` the repository then start up the server with 
@@ -32,8 +34,6 @@ npm run dev
 **Client:** Typescript, React, Redux, TailwindCSS, AntDesign
 
 **Server:** Python, Flask, Pytorch
-
-**Disclaimer** The requests will not be made without API keys, this can be added in the app.py file temporarily for making requests.
 
 **Models:** True-Lens AI uses a zero-shot classification which allows for a model that can classify text even without specific training. The model used is Facebook's BART Large MNLI model, which is good for text classification.
 ## Authors
